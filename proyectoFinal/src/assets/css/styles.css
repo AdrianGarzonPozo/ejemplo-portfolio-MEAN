@@ -104,3 +104,9 @@ footer{
     padding: 15px 0;
     color: rgba(0, 0, 0, 0.5);
 }
+
+
+/* Sobre mi */
+#title h1{
+    font-family: "finger";
+}
