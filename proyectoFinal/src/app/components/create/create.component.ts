@@ -16,6 +16,7 @@ export class CreateComponent implements OnInit {
   project: Project;
   status: string;
   filesToUpload: Array<File> = [];
+  extValid: Array<String>;
 
   constructor(
     private _projectService: ProjectService,
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit {
     this.title = "Crear proyecto";
     this.project = new Project('', '', '', '', 2019, '', '');
     this.status = "";
+    this.extValid = ['png', 'jpg', 'jpeg', 'gif'];
   }
 
   ngOnInit() {
@@ -31,43 +33,49 @@ export class CreateComponent implements OnInit {
 
   onSubmit(form: any) {
     console.log(this.project);
-    this._projectService.saveProject(this.project).subscribe(
-      (response: any) => {
-        if (response.project) {
+    if (this.filesToUpload.length > 0) {
+      console.log(this.filesToUpload[0].name.split(".")[1]);
+      if (this.extValid.includes(this.filesToUpload[0].name.split(".")[1])) {
+        this._projectService.saveProject(this.project).subscribe(
+          (response: any) => {
+            if (response.project) {
 
-          //Subimos la imagen
-          if (this.filesToUpload.length > 0) {
-            this._uploadService.makeFileRequest(global.url + '/uploadImage/' + response.project._id, [], this.filesToUpload, 'image')
-              .then((result: any) => {
-                if (result.message != "La extension no valida") {
+              //Subimos la imagen
 
-                  console.log(result);
+              this._uploadService.makeFileRequest(global.url + '/uploadImage/' + response.project._id, [], this.filesToUpload, 'image')
+                .then((result: any) => {
+                  if (result.message != "La extension no valida") {
 
-                  this.status = "success";
-                  form.reset();
+                    console.log(result);
 
-                } else {
-                  console.log(result);
+                    this.status = "success";
+                    form.reset();
 
-                  alert("La imagen no se ha guardado");
-                  this.status = "success";
-                  form.reset();
-                }
-              }).catch((err: any) => {
-                console.log(err);
-                console.log("Mal");
-              });
-          } else {
-            this.status = "success";
-            form.reset();
+                  } else {
+                    console.log(result);
+
+                    alert("La imagen no se ha guardado");
+                    this.status = "success";
+                    form.reset();
+                  }
+                }).catch((err: any) => {
+                  console.log(err);
+                  console.log("Mal");
+                });
+
+            }
+          },
+          (error: any) => {
+            console.log(error);
+            this.status = "failed";
           }
-        }
-      },
-      (error: any) => {
-        console.log(error);
-        this.status = "failed";
+        );
+      }else{
+        alert("La imagen tiene que ser png - jpg - jpeg - gif");
       }
-    );
+    } else {
+      alert("Selecciona una imagen");
+    }
   }
 
   fileChangeEvent(fileInput: any) {
