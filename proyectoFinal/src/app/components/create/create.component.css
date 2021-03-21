@@ -9,7 +9,7 @@
 }
 
 form {
-    width: 50%;
+    width: 80%;
 }
 
 form label {
@@ -23,7 +23,7 @@ form input[type="text"],
 form input[type="number"],
 form input[type="email"],
 form textarea {
-    width: 80%;
+    width: 40%;
     padding: 5px;
 }
 
@@ -42,4 +42,17 @@ form input[type="submit"]{
 form button:hover,
 form input[type="submit"]:hover{
     background: rgba(53, 103, 164, .8);
+}
+
+form input[disabled]{
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.form_error{
+    padding: 3px;
+    background: red;
+    color: white;
+    font-size: 13px;
+    margin-left: 5px;
 }
