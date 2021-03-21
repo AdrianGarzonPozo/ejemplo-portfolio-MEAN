@@ -80,3 +80,12 @@ form input[disabled]{
 .failed a{
     color: white;
 }
+
+.imgErr{
+    background: orange;
+    color: white;
+}
+
+.imgErr a{
+    color: white;
+}

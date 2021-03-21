@@ -2,10 +2,10 @@
   <h2>{{title}}</h2>
 
   <div class="message success" *ngIf="status=='success'">
-    El proyecto se ha cerado correctamente, puedes verlo <a href="">aquí</a>
+    El proyecto se ha creado correctamente, puedes verlo <a href="">aquí</a>
   </div>
   <div class="message failed" *ngIf="status=='failed'">
-    El proyecto no se ha cerado correctamente
+    El proyecto no se ha creado correctamente
   </div>
 
   <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
@@ -61,7 +61,7 @@
       <label for="image">
         Imágen del proyecto:
       </label>
-      <input type="file" name="image" placeholder="Subir imágen">
+      <input type="file" name="image" placeholder="Subir imágen" (change)="fileChangeEvent($event)" >
     </p>
 
     <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid">
