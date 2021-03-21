@@ -1,2 +1,2 @@
 # ejemplo-portfolio-MEAN
-Ejemplo un portfolio hecho con el stack MEAN.
+Ejemplo de un portfolio hecho con el stack MEAN.
