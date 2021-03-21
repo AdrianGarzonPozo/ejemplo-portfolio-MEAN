@@ -1,0 +1,45 @@
+.container {
+    padding: 10px 50px 50px 50px
+}
+
+.container h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+form {
+    width: 50%;
+}
+
+form label {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea {
+    width: 80%;
+    padding: 5px;
+}
+
+form button,
+form input[type="submit"]{
+    font-size: 17px;
+    padding: 10px;
+    display: block;
+    margin-top: 15px;
+    color: white;
+    background: rgba(53, 103, 164, 1);
+    border: 1px solid rgba(13, 67, 133, 0.8);
+    cursor: pointer;
+}
+
+form button:hover,
+form input[type="submit"]:hover{
+    background: rgba(53, 103, 164, .8);
+}
