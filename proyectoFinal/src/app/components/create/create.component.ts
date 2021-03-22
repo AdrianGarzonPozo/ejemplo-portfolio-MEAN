@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
   status: string;
   filesToUpload: Array<File> = [];
   extValid: Array<String>;
+  public save_project:any;
 
   constructor(
     private _projectService: ProjectService,
@@ -47,7 +48,7 @@ export class CreateComponent implements OnInit {
                   if (result.message != "La extension no valida") {
 
                     console.log(result);
-
+                    this.save_project=result.imagen_subida;
                     this.status = "success";
                     form.reset();
 

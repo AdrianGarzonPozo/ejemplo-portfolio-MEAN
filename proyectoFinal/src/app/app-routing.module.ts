@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './components/error/error.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 const appRoutes: Routes = [
   { path: '', component: AboutComponent },
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'proyectos', component: ProjectsComponent },
   { path: 'crear-proyecto', component: CreateComponent },
   { path: 'contacto', component: ContactComponent },
+  { path: 'proyecto/:id', component: DetailComponent },
   { path: '**', component: ErrorComponent }
 ];
 

@@ -86,10 +86,11 @@ header #logo a:hover{
 /* Contenedor Principal */
 #content{
     width: 75%;
+    height: auto;
     margin: 0 auto;
     box-shadow: 0px 0px 40px black;
     background: rgba(255, 255, 255, 0.7);
-    min-height: 90%;
+    min-height: 700px;
     padding-top: 120px;
     border-left:1px solid #b7b7b7;
     border-right:1px solid #b7b7b7;
