@@ -37,7 +37,6 @@ export class DetailComponent implements OnInit {
     this._projectService.getProject(id).subscribe(
       response=>{
         this.project=response;
-        console.log(this.project.name);
       },
       err=>{
         console.log(err);
